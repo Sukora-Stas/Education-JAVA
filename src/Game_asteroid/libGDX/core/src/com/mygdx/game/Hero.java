@@ -16,23 +16,16 @@ public class Hero {
     private int fireCounter;
     private int fireRate;
 
-    //    public Hero(Vector2 position) {
-//        texture = new Texture("ship80x60.tga");
-//        speed = 4.0f;
-//        this.position = position;
-//        fireRate = 15;
-//    }
-    public Hero() {
+        public Hero(Vector2 position) {
         texture = new Texture("ship80x60.tga");
         speed = 4.0f;
-        // this.position = position;
-        position = new Vector2(100, 350);
+        this.position = position;
         fireRate = 15;
     }
 
-
     public void render(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y);
+
     }
 
     public void update() {
