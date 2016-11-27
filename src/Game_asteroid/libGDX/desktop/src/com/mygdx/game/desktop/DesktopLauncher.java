@@ -9,6 +9,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = 1280;
 		config.height=720;
+		//config.fullscreen=true; // на весь экран (проблема с обработкой видео)
 		new LwjglApplication(new MyGdxGame(), config);
 	}
 }

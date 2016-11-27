@@ -28,7 +28,7 @@ public class Background {
         }
     }
 
-    private final int STARS_COUNT = 10000;
+    private final int STARS_COUNT = 220;
     private Star[] stars;
     private Texture texture;
     private Texture textureStar;
