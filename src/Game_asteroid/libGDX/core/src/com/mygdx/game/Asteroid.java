@@ -14,6 +14,11 @@ public class Asteroid {
     private float speed;
     private float ang;
     private Rectangle rect;
+    private int hp;
+
+    public Rectangle getRect() {
+        return rect;
+    }
 
     public Asteroid() {
         if (texture == null)
@@ -22,13 +27,24 @@ public class Asteroid {
         position = new Vector2(1280 + (float) Math.random() * 640, (float) Math.random() * 720);
         ang = (float) Math.random() * 360;
         rect = new Rectangle(position.x, position.y, 60, 60);
+        hp = 3;
     }
+
     public void render(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y, 30, 30, 60, 60, 1.0f, 1.0f, ang, 0, 0, 60, 60, false, false);
     }
+
     public void recreate() {
         position.x = 1280 + (float) Math.random() * 640;
         position.y = (float) Math.random() * 720;
+        hp = 3;
+    }
+
+    public void getDamage(int dmg) {
+        hp -= dmg;
+        if (hp <= 0) {
+            recreate();
+        }
     }
 
     public void update() {
