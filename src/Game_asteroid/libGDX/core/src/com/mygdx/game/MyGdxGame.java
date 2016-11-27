@@ -11,11 +11,14 @@ public class MyGdxGame extends ApplicationAdapter {
     SpriteBatch batch;
     Background bg;
     Hero hero;
-    private final int AST_COUNT = 20;
+    private final int AST_COUNT = 40;
     Asteroid[] asteroids;
     private final int MAX_BULLETS = 20;
     public static Bullet[] bullets;
     private Texture texBullet;
+    private final int MAX_FXES = 20;
+    public static MyFX[] fxes;
+
 
     @Override
     public void create() {
@@ -31,6 +34,10 @@ public class MyGdxGame extends ApplicationAdapter {
             bullets[i] = new Bullet();
         }
         texBullet = new Texture("bullet20.png");
+        fxes = new MyFX[MAX_FXES];
+        for (int i = 0; i < MAX_FXES; i++) {
+            fxes[i] = new MyFX();
+        }
     }
 
     @Override
@@ -46,9 +53,11 @@ public class MyGdxGame extends ApplicationAdapter {
         hero.render(batch);
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (bullets[i].isActive())
-                batch.draw(texBullet, bullets[i].getPosition().x+45, bullets[i].getPosition().y+18);
+                batch.draw(texBullet, bullets[i].getPosition().x + 45, bullets[i].getPosition().y + 18);
         }
-
+        for (int i = 0; i < MAX_FXES; i++) {
+            fxes[i].render(batch);
+        }
         batch.end();
     }
 
@@ -66,25 +75,24 @@ public class MyGdxGame extends ApplicationAdapter {
             if (bullets[i].isActive()) {
                 for (int j = 0; j < AST_COUNT; j++) {
                     if (asteroids[j].getRect().contains(bullets[i].getPosition())) {
-                        asteroids[j].recreate();
+                        // asteroids[j].recreate();
+                        asteroids[j].getDamage(1);   //жизнь у астеройдов
                         bullets[i].destroy();
 
-//                        for (int k = 0; k < MAX_FXES; k++) {
-//                            if (!fxes[k].isActive()) {
-//                                fxes[k].setup(bullets[i].getPosition().x, bullets[i].getPosition().y);
-//                                break;
-//                            }
-//                        }
+                        for (int k = 0; k < MAX_FXES; k++) {
+                            if (!fxes[k].isActive()) {
+                                fxes[k].setup(bullets[i].getPosition().x, bullets[i].getPosition().y);
+                                break;
+                            }
+                        }
 
                         break;
                     }
                 }
             }
         }
-    }
-
-    @Override
-    public void dispose() {
-        batch.dispose();
+        for (int i = 0; i < MAX_FXES; i++) {
+            fxes[i].update();
+        }
     }
 }
