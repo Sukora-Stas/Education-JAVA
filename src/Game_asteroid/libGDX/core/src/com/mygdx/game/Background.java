@@ -20,14 +20,15 @@ public class Background {
 
         public void update() {
             position.x -= speed;
-            if (position.x < -40) {
+          //  position.y += (float)Math.sin(position.x/100.0f); //движение частиц
+            if (position.x < -10) {
                 position.x = 1300;
                 position.y = (float) Math.random() * 720;
             }
         }
     }
 
-    private final int STARS_COUNT = 200;
+    private final int STARS_COUNT = 10000;
     private Star[] stars;
     private Texture texture;
     private Texture textureStar;
@@ -44,6 +45,7 @@ public class Background {
     public void render(SpriteBatch batch) {
         batch.draw(texture, 0, 0);
         for (int i = 0; i < STARS_COUNT; i++) {
+           // batch.setColor(stars[i].position.x/1280f,stars[i].position.y/720f,0,1); //изменение цвета
             batch.draw(textureStar, stars[i].position.x, stars[i].position.y);
         }
     }
