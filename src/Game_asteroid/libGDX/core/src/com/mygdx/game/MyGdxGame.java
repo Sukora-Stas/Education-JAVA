@@ -31,11 +31,10 @@ public class MyGdxGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         bg.render(batch);
-        hero.render(batch);
         for (int i = 0; i < AST_COUNT; i++) {
             asteroids[i].render(batch);
         }
-
+        hero.render(batch);
         batch.end();
     }
 
