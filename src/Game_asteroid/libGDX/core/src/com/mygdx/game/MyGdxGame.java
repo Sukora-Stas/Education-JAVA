@@ -13,6 +13,7 @@ public class MyGdxGame extends ApplicationAdapter {
     Hero hero;
     private final int AST_COUNT = 40;
     Asteroid[] asteroids;
+    Asteroid asteroid;
     private final int MAX_BULLETS = 20;
     public static Bullet[] bullets;
     private Texture texBullet;
@@ -71,14 +72,16 @@ public class MyGdxGame extends ApplicationAdapter {
             if (bullets[i].isActive())
                 bullets[i].update();
         }
+        for (int j = 0; j < AST_COUNT; j++) { //уничтожение героя
+            if (asteroids[j].getRect().contains(hero.getPosition())) {
+                hero.getDamage(1);   //жизнь у героя
+                asteroids[j].recreate();
+            }
+        }
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (bullets[i].isActive()) {
                 for (int j = 0; j < AST_COUNT; j++) {
                     if (asteroids[j].getRect().contains(bullets[i].getPosition())) {
-                        if (asteroids[j].getRect().contains(hero.getPosition())) {
-                            hero.getDamage(1);   //жизнь у героя
-                        }
-
                         // asteroids[j].recreate();
                         asteroids[j].getDamage(1);   //жизнь у астеройдов
                         bullets[i].destroy();
@@ -88,15 +91,10 @@ public class MyGdxGame extends ApplicationAdapter {
                                 break;
                             }
                         }
-
-
                         break;
                     }
-
                 }
-
             }
-
         }
         for (int i = 0; i < MAX_FXES; i++) {
             fxes[i].update();
