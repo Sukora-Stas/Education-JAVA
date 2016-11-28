@@ -26,14 +26,14 @@ public class Asteroid {
         speed = 1.0f + (float) Math.random() * 7.0f;
         position = new Vector2(1280 + (float) Math.random() * 640, (float) Math.random() * 720);
         ang = (float) Math.random() * 360;
-        rect = new Rectangle(position.x, position.y, 60, 60);
+        rect = new Rectangle(position.x, position.y, 30, 60);
         hp = 3;
     }
 
     public void render(SpriteBatch batch) {
-        batch.setColor(1,1-(3-hp)*0.3f,1-(3-hp)*0.3f,1);
+        batch.setColor(1, 1 - (3 - hp) * 0.3f, 1 - (3 - hp) * 0.3f, 1);
         batch.draw(texture, position.x, position.y);
-        batch.setColor(1,1,1,1);
+        batch.setColor(1, 1, 1, 1);
     }
 
     public void recreate() {

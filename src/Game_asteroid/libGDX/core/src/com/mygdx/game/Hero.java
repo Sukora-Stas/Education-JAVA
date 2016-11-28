@@ -15,17 +15,32 @@ public class Hero {
     private float speed;
     private int fireCounter;
     private int fireRate;
+    private int hp;
 
-        public Hero(Vector2 position) {
+    public Hero(Vector2 position) {
         texture = new Texture("ship80x60.tga");
         speed = 6.0f;
         this.position = position;
         fireRate = 5;
+        hp = 3;
     }
 
     public void render(SpriteBatch batch) {
+        batch.setColor(1, 1 - (3 - hp) * 0.3f, 1 - (3 - hp) * 0.3f, 1);
         batch.draw(texture, position.x, position.y);
+        batch.setColor(1, 1, 1, 1);
+    }
 
+    public void recreate() {
+        position = new Vector2(100, 100);
+        hp = 3;
+    }
+
+    public void getDamage(int dmg) {
+        hp -= dmg;
+        if (hp <= 0) {
+            recreate();
+        }
     }
 
     public void update() {
@@ -45,12 +60,12 @@ public class Hero {
             position.y -= speed;
             if (position.y < -40) position.y = Gdx.graphics.getHeight();
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             fireCounter++;
-            if(fireCounter > fireRate) {
+            if (fireCounter > fireRate) {
                 fireCounter = 0;
                 for (int i = 0; i < MyGdxGame.bullets.length; i++) {
-                    if(!MyGdxGame.bullets[i].isActive()) {
+                    if (!MyGdxGame.bullets[i].isActive()) {
                         MyGdxGame.bullets[i].setup(position.x, position.y);
                         break;
                     }
