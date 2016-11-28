@@ -32,7 +32,7 @@ public class Hero {
     }
 
     public void recreate() {
-        position = new Vector2(100, 100);
+        position = new Vector2(150, 350);
         hp = 3;
     }
 
@@ -41,6 +41,10 @@ public class Hero {
         if (hp <= 0) {
             recreate();
         }
+    }
+
+    public Vector2 getPosition() {
+        return position;
     }
 
     public void update() {

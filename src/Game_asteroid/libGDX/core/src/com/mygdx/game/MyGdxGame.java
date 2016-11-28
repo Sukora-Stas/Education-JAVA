@@ -24,7 +24,7 @@ public class MyGdxGame extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
         bg = new Background();
-        hero = new Hero(new Vector2(100, 100));
+        hero = new Hero(new Vector2(150, 350));
         asteroids = new Asteroid[AST_COUNT];
         for (int i = 0; i < AST_COUNT; i++) {
             asteroids[i] = new Asteroid();
@@ -75,10 +75,13 @@ public class MyGdxGame extends ApplicationAdapter {
             if (bullets[i].isActive()) {
                 for (int j = 0; j < AST_COUNT; j++) {
                     if (asteroids[j].getRect().contains(bullets[i].getPosition())) {
+                        if (asteroids[j].getRect().contains(hero.getPosition())) {
+                            hero.getDamage(1);   //жизнь у героя
+                        }
+
                         // asteroids[j].recreate();
                         asteroids[j].getDamage(1);   //жизнь у астеройдов
                         bullets[i].destroy();
-
                         for (int k = 0; k < MAX_FXES; k++) {
                             if (!fxes[k].isActive()) {
                                 fxes[k].setup(bullets[i].getPosition().x, bullets[i].getPosition().y);
@@ -86,10 +89,14 @@ public class MyGdxGame extends ApplicationAdapter {
                             }
                         }
 
+
                         break;
                     }
+
                 }
+
             }
+
         }
         for (int i = 0; i < MAX_FXES; i++) {
             fxes[i].update();
