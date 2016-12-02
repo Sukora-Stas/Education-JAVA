@@ -34,7 +34,7 @@ public class Asteroid {
 
     public void render(SpriteBatch batch) {
         batch.setColor(1, 1 - (3 - hp) * 0.3f, 1 - (3 - hp) * 0.3f, 1);
-        batch.draw(texture, position.x, position.y, 30, 30, 60, 60, size, size, ang, 0, 0, 60, 60, false, false);
+        batch.draw(texture, position.x+30, position.y+30, 30, 30, 60, 60, size, size, ang, 0, 0, 60, 60, false, false);
         batch.setColor(1, 1, 1, 1);
     }
 
@@ -55,7 +55,7 @@ public class Asteroid {
     public void update() {
         position.x -= speed;
         ang += speed;
-        if (position.x < -60) {
+        if (position.x < -90) {
             recreate();
         }
         rect.x = position.x;

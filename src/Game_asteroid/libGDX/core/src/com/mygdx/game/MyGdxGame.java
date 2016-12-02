@@ -11,7 +11,7 @@ public class MyGdxGame extends ApplicationAdapter {
     SpriteBatch batch;
     Background bg;
     Hero hero;
-    private final int AST_COUNT = 40;
+    private final int AST_COUNT = 30;
     Asteroid[] asteroids;
     Asteroid asteroid;
     private final int MAX_BULLETS = 20;
