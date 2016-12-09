@@ -6,11 +6,18 @@ import java.util.Scanner;
  * Created by Sukora Stas.
  */
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Ваша задаач угадать число.");
         int range = 20;
         int number = (int) (Math.random() * range);
+        playLevel(range, number);
+        scanner.close();
+    }
+
+    private static void playLevel(int range, int number) {
         System.out.println("Угадайте число от 0 до " + range);
         while (true) {
             int input_number = scanner.nextInt();
@@ -23,9 +30,5 @@ public class Main {
                 System.out.println("Загаданное число больше");
             }
         }
-        scanner.close();
-    }
-    private static void playLevel (int range, int number){
-
     }
 }
