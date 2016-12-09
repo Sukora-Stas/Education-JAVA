@@ -16,18 +16,24 @@ public class GameWindow extends JFrame {
         game_window.setLocation(550, 250);
         game_window.setSize(906, 478);
         game_window.setResizable(false);
+        GameFields game_field = new GameFields();
+        game_window.add(game_field);
         game_window.setVisible(true);
     }
 
-    private static void onRepaint(Graphics g){
-
-
-    }
-    private static class GameFields extends JPanel{
+    private static void onRepaint(Graphics g) {
+        g.fillOval(10, 10, 200, 100);
+        g.fillRect(200,200,100,2);
 
     }
 
-
+    private static class GameFields extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            onRepaint(g);
+        }
+    }
 
 
 }
