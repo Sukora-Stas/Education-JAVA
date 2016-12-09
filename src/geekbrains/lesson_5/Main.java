@@ -9,14 +9,12 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        for (int i = 0; i <=30 ; i++) {
-            System.out.println(i);
+        System.out.println("Ваша задаач угадать число.");
+        for (int i = 10; i <= 30; i += 10) {
+            int number = (int) (Math.random() * i);
+            playLevel(i, number);
         }
-//        System.out.println("Ваша задаач угадать число.");
-//        int range = 20;
-//        int number = (int) (Math.random() * range);
-//        playLevel(range, number);
-//        scanner.close();
+        scanner.close();
     }
 
     private static void playLevel(int range, int number) {
