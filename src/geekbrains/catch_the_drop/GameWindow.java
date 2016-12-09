@@ -1,7 +1,9 @@
 package geekbrains.catch_the_drop;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created by Sukora Stas.
@@ -9,8 +11,14 @@ import java.awt.*;
 public class GameWindow extends JFrame {
 
     private static GameWindow game_window;
+    private static Image bacground;
+    private static Image game_over;
+    private static Image drop;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        bacground = ImageIO.read(GameWindow.class.getResourceAsStream("background.png"));
+        game_over = ImageIO.read(GameWindow.class.getResourceAsStream("game_over.png"));
+        drop = ImageIO.read(GameWindow.class.getResourceAsStream("drop.png"));
         game_window = new GameWindow();
         game_window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //закрытие(остановка) приложения по крестику
         game_window.setLocation(550, 250);
@@ -22,9 +30,9 @@ public class GameWindow extends JFrame {
     }
 
     private static void onRepaint(Graphics g) {
-        g.fillOval(10, 10, 200, 100);
-        g.fillRect(150,150,100,2);
-        g.drawLine(200,200,400,300);
+        g.drawImage(bacground,0,0,null);
+        g.drawImage(drop,100,100,null);
+        g.drawImage(game_over,280,120,null);
     }
 
     private static class GameFields extends JPanel {
