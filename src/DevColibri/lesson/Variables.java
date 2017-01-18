@@ -14,13 +14,23 @@ public class Variables {
 
     static boolean bool = true; //or false
 
+    static String str = "string";
+
+    static char c = 'd';
+
+    static final int CONST = 55;
+
     public static void main(String[] args) {
-        System.out.println("byte: " + b);
-        System.out.println("short: " + sh);
-        System.out.println("int: " + it);
-        System.out.println("long: " + l);
-        System.out.println("float: " + fl);
-        System.out.println("double: " + db);
-        System.out.println("boolean: " + bool + " //or false");
+        System.out.println(CONST);
+//        System.out.println("byte: " + b);
+//        System.out.println("short: " + sh);
+//        System.out.println("int: " + it);
+//        System.out.println("long: " + l);
+//        System.out.println("float: " + fl);
+//        System.out.println("double: " + db);
+//        System.out.println("boolean: " + bool + " //or false");
+//
+//        System.out.println(str);
+//        System.out.println(c);
     }
 }
