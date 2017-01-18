@@ -1,4 +1,4 @@
-package DevColibri;
+package DevColibri.lesson;
 
 /**
  * Created by Sukora Stas.
@@ -9,7 +9,7 @@ public class HelloWorld {
         not();
     }
 
-    static void not(){
+    private static void not() {
         System.out.println("Not working!!!");
     }
 }
