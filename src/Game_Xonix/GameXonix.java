@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -118,14 +119,77 @@ class GameXonix extends JFrame {
     }
 
     class Balls {
-        void paint(Graphics g) {
+        private ArrayList<Ball> balls = new ArrayList<Ball>();
 
+        Balls() {
+            add();
+        }
+
+        void add() {
+            balls.add(new Ball());
+        }
+
+        void move() {
+            for (Ball ball : balls) ball.move();
+        }
+
+        ArrayList<Ball> getBalls() {
+            return balls;
+        }
+
+        boolean isHitTrackOrXonix() {
+            for (Ball ball : balls) if (ball.isHitTrackOrXonix()) return true;
+            return false;
+        }
+
+        void paint(Graphics g) {
+            for (Ball ball : balls) ball.paint(g);
         }
     }
 
     class Ball {
-        void paint(Graphics g) {
+        private int x, y, dx, dy;
 
+        Ball() {
+            do {
+                x = random.nextInt(FIELD_WIDTH);
+                y = random.nextInt(FIELD_HEIGHT);
+            } while (field.getColor(x, y) > COLOR_WATER);
+            dx = random.nextBoolean() ? 1 : -1;
+            dy = random.nextBoolean() ? 1 : -1;
+        }
+
+        void updateDXandDY() {
+            if (field.getColor(x + dx, y) == COLOR_LAND) dx = -dx;
+            if (field.getColor(x, y + dy) == COLOR_LAND) dy = -dy;
+        }
+
+        void move() {
+            updateDXandDY();
+            x += dx;
+            y += dy;
+        }
+
+        int getX() {
+            return x;
+        }
+
+        int getY() {
+            return y;
+        }
+
+        boolean isHitTrackOrXonix() {
+            updateDXandDY();
+            if (field.getColor(x + dx, y + dy) == COLOR_TRACK) return true;
+            if (x + dx == xonix.getX() && y + dy == xonix.getY()) return true;
+            return false;
+        }
+
+        void paint(Graphics g) {
+            g.setColor(Color.white);
+            g.fillOval(x * POINT_SIZE, y * POINT_SIZE, POINT_SIZE, POINT_SIZE);
+            g.setColor(new Color(COLOR_LAND));
+            g.fillOval(x * POINT_SIZE + 2, y * POINT_SIZE + 2, POINT_SIZE - 4, POINT_SIZE - 4);
         }
     }
 
