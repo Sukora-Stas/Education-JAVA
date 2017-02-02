@@ -55,6 +55,31 @@ class GameXonix extends JFrame {
 
     }
 
+    class Field{
+        void paint(Graphics g) {
+
+        }
+    }
+
+    class Xonix{
+        void paint(Graphics g) {
+
+        }
+    }
+
+    class Balls{
+        void paint(Graphics g) {
+
+        }
+    }
+
+    class Ball{
+        void paint(Graphics g) {
+
+        }
+    }
+
+
     class Delay {
         void wait(int milliseconds) {
             try {
