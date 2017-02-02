@@ -1,4 +1,4 @@
-package Game_Xonix;
+package GAME.Game_Xonix;
 
 /**
  * Created by Sukora Stas.
