@@ -21,6 +21,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 400, 400);
         Button btn = new Button();
         btn.setLayoutX(100);
+        btn.setMaxSize(100,500);
         btn.setLayoutY(80);
         btn.setText("Hello World");
         btn.setOnAction(new EventHandler<ActionEvent>() {
