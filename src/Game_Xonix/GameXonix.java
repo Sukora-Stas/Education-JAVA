@@ -50,8 +50,7 @@ class GameXonix extends JFrame {
     }
 
     GameXonix() {
-//        setTitle(TITLE_OF_PROGRAM);
-        setTitle("моя программа");
+        setTitle(TITLE_OF_PROGRAM);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         //отрисовка местоположения окна
         setBounds(START_LOCATION, START_LOCATION, FIELD_WIDTH * POINT_SIZE + FIELD_DX, FIELD_HEIGHT * POINT_SIZE + FIELD_DY);
@@ -73,7 +72,29 @@ class GameXonix extends JFrame {
     }
 
     void go() {
-
+        while (!gameover.isGameOver()) {
+            xonix.move();
+            balls.move();
+//            cube.move();
+            canvas.repaint();
+            board.setText(String.format(FORMAT_STRING, field.getCountScore(), "Xn:", xonix.getCountLives(), "Full:", field.getCurrentPercent()));
+            delay.wait(SHOW_DELAY);
+            if (xonix.isSelfCrosed() || balls.isHitTrackOrXonix()) {//|| cube.isHitXonix()
+                xonix.decreaseCountLives();
+                if (xonix.getCountLives() > 0) {
+                    xonix.init();
+                    field.clearTrack();
+                    delay.wait(SHOW_DELAY * 10);
+                }
+            }
+            if (field.getCurrentPercent() >= PERCENT_OF_WATER_CAPTURE) {
+                field.init();
+                xonix.init();
+//                cube.init();
+                balls.add();
+                delay.wait(SHOW_DELAY * 10);
+            }
+        }
     }
 
     class Field {
@@ -83,6 +104,10 @@ class GameXonix extends JFrame {
     }
 
     class Xonix {
+        void setDirection(int direction) {
+
+        }
+
         int getCountLives() {
             return 1;
         }
