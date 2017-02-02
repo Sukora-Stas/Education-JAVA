@@ -43,7 +43,7 @@ class GameXonix extends JFrame {
     Field field = new Field();
     Xonix xonix = new Xonix();
     Balls balls = new Balls();
-    //    Cube cube = new Cube();
+    Cube cube = new Cube();
     GameOver gameover = new GameOver();
 
     public static void main(String[] args) {
@@ -76,11 +76,11 @@ class GameXonix extends JFrame {
         while (!gameover.isGameOver()) {
             xonix.move();
             balls.move();
-//            cube.move();
+            cube.move();
             canvas.repaint();
             board.setText(String.format(FORMAT_STRING, field.getCountScore(), "Xn:", xonix.getCountLives(), "Full:", field.getCurrentPercent()));
             delay.wait(SHOW_DELAY);
-            if (xonix.isSelfCrosed() || balls.isHitTrackOrXonix()) {//|| cube.isHitXonix()
+            if (xonix.isSelfCrosed() || balls.isHitTrackOrXonix() || cube.isHitXonix()) {
                 xonix.decreaseCountLives();
                 if (xonix.getCountLives() > 0) {
                     xonix.init();
@@ -91,7 +91,7 @@ class GameXonix extends JFrame {
             if (field.getCurrentPercent() >= PERCENT_OF_WATER_CAPTURE) {
                 field.init();
                 xonix.init();
-//                cube.init();
+                cube.init();
                 balls.add();
                 delay.wait(SHOW_DELAY * 10);
             }
@@ -313,6 +313,41 @@ class GameXonix extends JFrame {
         }
     }
 
+    class Cube {
+        private int x, y, dx, dy;
+
+        Cube() {
+            init();
+        }
+
+        void init() {
+            x = dx = dy = 1;
+        }
+
+        void updateDXandDY() {
+            if (field.getColor(x + dx, y) == COLOR_WATER) dx = -dx;
+            if (field.getColor(x, y + dy) == COLOR_WATER) dy = -dy;
+        }
+
+        void move() {
+            updateDXandDY();
+            x += dx;
+            y += dy;
+        }
+
+        boolean isHitXonix() {
+            updateDXandDY();
+            if (x + dx == xonix.getX() && y + dy == xonix.getY()) return true;
+            return false;
+        }
+
+        void paint(Graphics g) {
+            g.setColor(new Color(COLOR_WATER));
+            g.fillRect(x * POINT_SIZE, y * POINT_SIZE, POINT_SIZE, POINT_SIZE);
+            g.setColor(new Color(COLOR_LAND));
+            g.fillRect(x * POINT_SIZE + 2, y * POINT_SIZE + 2, POINT_SIZE - 4, POINT_SIZE - 4);
+        }
+    }
 
     class Delay {
         void wait(int milliseconds) {
@@ -350,7 +385,7 @@ class GameXonix extends JFrame {
             field.paint(g);
             xonix.paint(g);
             balls.paint(g);
-//            cube.paint(g);
+            cube.paint(g);
             gameover.paint(g);
         }
     }
