@@ -9,7 +9,6 @@ package Game_Xonix;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Random;
 
 
@@ -54,6 +53,16 @@ class GameXonix extends JFrame {
 
     void go() {
 
+    }
+
+    class Delay {
+        void wait(int milliseconds) {
+            try {
+                Thread.sleep(milliseconds);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     class GameOver {
