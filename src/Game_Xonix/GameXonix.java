@@ -9,6 +9,8 @@ package Game_Xonix;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
 
@@ -48,32 +50,55 @@ class GameXonix extends JFrame {
     }
 
     GameXonix() {
-
+//        setTitle(TITLE_OF_PROGRAM);
+        setTitle("моя программа");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //отрисовка местоположения окна
+        setBounds(START_LOCATION, START_LOCATION, FIELD_WIDTH * POINT_SIZE + FIELD_DX, FIELD_HEIGHT * POINT_SIZE + FIELD_DY);
+        setResizable(false); //не изменный размер
+        board.setFont(font);
+        board.setOpaque(true);
+        board.setBackground(Color.black);
+        board.setForeground(Color.white);
+        board.setHorizontalAlignment(JLabel.CENTER);
+        add(BorderLayout.CENTER, canvas);
+        add(BorderLayout.SOUTH, board);
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() >= LEFT && e.getKeyCode() <= DOWN)
+                    xonix.setDirection(e.getKeyCode());
+            }
+        });
+        setVisible(true);
     }
 
     void go() {
 
     }
 
-    class Field{
+    class Field {
         void paint(Graphics g) {
 
         }
     }
 
-    class Xonix{
+    class Xonix {
+        int getCountLives() {
+            return 1;
+        }
+
         void paint(Graphics g) {
 
         }
     }
 
-    class Balls{
+    class Balls {
         void paint(Graphics g) {
 
         }
     }
 
-    class Ball{
+    class Ball {
         void paint(Graphics g) {
 
         }
