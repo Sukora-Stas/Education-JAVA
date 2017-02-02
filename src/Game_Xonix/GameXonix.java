@@ -33,7 +33,8 @@ class GameXonix extends JFrame {
     final int COLOR_WATER = 0;
     final int COLOR_LAND = 0x00a8a8;
     final int COLOR_TRACK = 0x901290;
-    final int PERCENT_OF_WATER_CAPTURE = 75;
+    final int PERCENT_OF_WATER_CAPTURE = 30; //колличесвто процентов
+
     final String FORMAT_STRING = "Score: %d %20s %d %20s %2.0f%%";
     final Font font = new Font("", Font.BOLD, 21);
     Random random = new Random();
