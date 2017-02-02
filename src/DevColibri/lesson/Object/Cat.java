@@ -9,6 +9,9 @@ public class Cat {
     String poroda;
     String name;
 
+    void say() {
+        System.out.println("May");
+    }
 
     @Override
     public String toString() {
