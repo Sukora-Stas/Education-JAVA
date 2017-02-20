@@ -1,27 +1,26 @@
 package DevColibri.lesson.Object;
 
+import DevColibri.lesson.Object.devcat.Cat;
+import DevColibri.lesson.Object.devpeople.People;
+
 /**
  * Created by Sukora Stas.
  */
 
 public class Main {
 
-    static Cat cat = new Cat();
-    static People people = new People();
+    static Cat cat;
+    static People people;
 
     public static void main(String[] args) {
-        cat.name = "Timon";
-        cat.poroda = "Shpic";
-        cat.vozvrat = 2;
+        cat = new Cat(2, "Шпиц", "Лиза");
 
-
-        people.name = "Stas";
-        people.lastName = "Sukora";
-        people.age = 19;
-        people.cat = cat;
+        people = new People("Стас", "Сукора", 19, cat);
+        people.getCat().setName("Джордж");
 
         System.out.println(people);
         cat.say();
+        people.getCat().say();
     }
 
 }
