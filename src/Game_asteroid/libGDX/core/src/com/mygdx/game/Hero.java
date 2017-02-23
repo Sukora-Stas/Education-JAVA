@@ -18,7 +18,7 @@ public class Hero {
     private int hp;
 
     public Hero(Vector2 position) {
-        texture = new Texture("ship80x60.tga");
+        texture = new Texture("core/assets/ship80x60.tga");
         speed = 6.0f;
         this.position = position;
         fireRate = 5;

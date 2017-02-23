@@ -19,7 +19,7 @@ public class MyFX {
 
     public MyFX() {
         if (texture == null)
-            texture = new Texture("BOOM.png");
+            texture = new Texture("core/assets/BOOM.png");
         active = false;
         position = new Vector2(0.0f, 0.0f);
     }

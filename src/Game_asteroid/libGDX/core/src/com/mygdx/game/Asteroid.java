@@ -23,7 +23,7 @@ public class Asteroid {
 
     public Asteroid() {
         if (texture == null)
-            texture = new Texture("asteroid60.tga");
+            texture = new Texture("core/assets/asteroid60.tga");
         speed = 1.0f + (float) Math.random() * 7.0f;
         position = new Vector2(1280 + (float) Math.random() * 640, (float) Math.random() * 720);
         ang = (float) Math.random() * 360;

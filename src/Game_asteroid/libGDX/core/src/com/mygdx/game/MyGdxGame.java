@@ -34,7 +34,7 @@ public class MyGdxGame extends ApplicationAdapter {
         for (int i = 0; i < MAX_BULLETS; i++) {
             bullets[i] = new Bullet();
         }
-        texBullet = new Texture("bullet20.png");
+        texBullet = new Texture("core/assets/bullet20.png");
         fxes = new MyFX[MAX_FXES];
         for (int i = 0; i < MAX_FXES; i++) {
             fxes[i] = new MyFX();
