@@ -6,7 +6,7 @@ package workbook.Task;
 
 public class Task2 {
     public static void main(String[] args) {
-        int s = 309999999;
+        int s = 30999999;
         int sec, m, min, h, hour, day, d, week, w;
         sec = s % 60;               //остаток секунд
         m = (s - sec) / 60;         // количество минут
@@ -18,6 +18,6 @@ public class Task2 {
         day = d % 24;               //остаток дней
         w = (d - day) / 7;
         week = w % 7;
-        System.out.println(w + " недель " + day + " дней " + hour + " часов " + min + " минут " + sec + " секунд");
+        System.out.println(week + " недель " + day + " дней " + hour + " часов " + min + " минут " + sec + " секунд");
     }
 }

@@ -1,6 +1,7 @@
 package DevColibri.lesson.Object;
 
 import DevColibri.lesson.Object.devcat.Cat;
+import DevColibri.lesson.Object.devcat.SportMan;
 import DevColibri.lesson.Object.devpeople.People;
 
 /**
@@ -21,6 +22,14 @@ public class Main {
         System.out.println(people);
         cat.say();
         people.getCat().say();
+
+
+        SportMan sportMan = new SportMan("Stas", "Sukora", 36, null);
+
+        sportMan.setTypeSport("Tenis");
+        System.out.println(sportMan);
+
+
     }
 
 }

@@ -9,7 +9,7 @@ public class Task29 {
 
     static HashMap<String, Integer> checkText() {
         HashMap<String, Integer> wordsInHashMap = new HashMap<>();
-        String[] words = Text.text.split("[^a-zA-Z]+");
+        String[] words = task29.Text.text.split("[^a-zA-Z]+");
         for (int i = 0; i < words.length; i++) {
             if (!wordsInHashMap.containsKey(words[i])) {
                 wordsInHashMap.put(words[i], 1);

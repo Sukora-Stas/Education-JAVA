@@ -1,4 +1,4 @@
-package it_academy_additional.task1;
+package workbook.it_academy_additional.task1;
 
 /**
  * Created by meks on 9/7/2016.

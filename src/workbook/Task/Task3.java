@@ -14,8 +14,6 @@ public class Task3 {
             if (7 == m) {
                 System.out.println("Число последняя цифра которого равна 7: " + a);
             }
-
-
         }
     }
 }
