@@ -14,7 +14,7 @@ public class test {
         }
         System.out.println(names);
         for (int j = 0; j < names.size(); j++) {
-            names.add(j, "Updated Name");
+            names.set(j,"updated name");
         }
         System.out.println(names);
     }

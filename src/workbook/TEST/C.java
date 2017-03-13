@@ -5,7 +5,9 @@ package workbook.TEST;
  */
 
 public class C implements A,B {
-    C c = new C();
+
+    B c = new C();
+    long n = c.count;
 
 }
 
