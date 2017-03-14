@@ -7,6 +7,8 @@ import java.io.*;
  */
 public class Hello {
     public static void main(String[] args) {  /* байтовый поток ввода System.in передается конструктору потока    чтения при создании объекта класса InputStreamReader  */
+        for (String str : args) System.out.printf("Aрг-> %s%n", str);
+
         InputStreamReader is = new InputStreamReader(System.in);  /* производится буферизация данных, исключающая необходимость  обращения к источнику данных при выполнении операции чтения */
         BufferedReader bis = new BufferedReader(is);
         try {
@@ -16,5 +18,7 @@ public class Hello {
         } catch (IOException e) {
             System.err.print("ошибка ввода " + e);
         }
+
+        for (String str : args) System.out.printf("Aрг-> %s%n", str);
     }
 }
