@@ -5,6 +5,9 @@ import java.io.*;
 /**
  * Created by Sukora Stas.
  */
+//1.Создать класс Hello,который будет приветствовать любого пользователя,используя командную строку.
+//2.Создать приложение,которое отображает в окне консоли аргументы командной строки метода main()в обратном порядке
+
 public class Hello {
     public static void main(String[] args) {  /* байтовый поток ввода System.in передается конструктору потока    чтения при создании объекта класса InputStreamReader  */
         for (String str : args) System.out.printf("Aрг-> %s%n", str);
