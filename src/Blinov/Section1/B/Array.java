@@ -7,6 +7,7 @@ import java.util.Random;
  * Created by Sukora Stas.
  */
 public class Array {
+//Ввести с консоли n целых чисел и поместить их в массив. На консоль вывести:
 
     public static void main(String[] args) {
         int[] a = new int[20];
@@ -25,7 +26,7 @@ public class Array {
 
     //5. Элементы, расположенные методом пузырька по убыванию модулей.
     private static void bubbleSort(int[] arr) {
-
+        System.out.println("BubbleSort");
         for (int i = arr.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (Math.abs(arr[j]) < Math.abs(arr[j + 1])) {
@@ -35,6 +36,10 @@ public class Array {
                 }
             }
         }
+        for (int anArr : arr) {
+            System.out.print(" " + anArr);
+        }
+
     }
 
     //4. Числа, которые делятся на 5 и на 7.
@@ -45,6 +50,7 @@ public class Array {
                 System.out.println("Ind[" + i + "]= " + a[i]);
             }
         }
+        System.out.println();
     }
 
     //3. Числа, которые делятся на 3 или на 9.
