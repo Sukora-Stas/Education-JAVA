@@ -11,7 +11,7 @@ public class Array {
     public static void main(String[] args) {
         int[] a = new int[20];
         for (int i = 0; i < a.length; i++) {
-            a[i] = (int) (Math.random() * 100)+1;
+            a[i] = (int) (Math.random() * 100) + 1;
         }
         System.out.println(Arrays.toString(a));
         System.out.println();
@@ -19,22 +19,30 @@ public class Array {
         Max(a);
         Min(a);
         Task3(a);
+        Task4(a);
     }
-//4. Числа, которые делятся на 5 и на 7.
-private static void Task4(int[] a){
 
-}
-
-//3. Числа, которые делятся на 3 или на 9.
-    private static void Task3(int[] a){
-        System.out.println("Числа, которые делятся на 3 или на 9:");
+    //4. Числа, которые делятся на 5 и на 7.
+    private static void Task4(int[] a) {
+        System.out.println("Числа, которые делятся на 5 и на 7:");
         for (int i = 0; i < a.length; i++) {
-            if(a[i]%3==0 || a[i]%9==0){
+            if (a[i] % 5 == 0 && a[i] % 7 == 0) {
                 System.out.println("Ind[" + i + "]= " + a[i]);
             }
         }
     }
-//2. Наибольшее и наименьшее число.
+
+    //3. Числа, которые делятся на 3 или на 9.
+    private static void Task3(int[] a) {
+        System.out.println("Числа, которые делятся на 3 или на 9:");
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 3 == 0 || a[i] % 9 == 0) {
+                System.out.println("Ind[" + i + "]= " + a[i]);
+            }
+        }
+    }
+
+    //2. Наибольшее и наименьшее число.
     private static void Max(int[] a) {
         int max = Integer.MIN_VALUE;
         for (int anA : a) {
@@ -51,7 +59,8 @@ private static void Task4(int[] a){
         }
         System.out.println("Минимальный элемент массива: " + min);
     }
-//1. Четные и нечетные числа.
+
+    //1. Четные и нечетные числа.
     private static void EvenAndNorEven(int[] a) {
         System.out.println("Чётные элементы: ");
         for (int i = 0; i < a.length; i++) {
