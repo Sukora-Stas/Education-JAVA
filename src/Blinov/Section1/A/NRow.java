@@ -1,4 +1,4 @@
-package Blinov.Section1;
+package Blinov.Section1.A;
 
 /**
  * Created by Sukora Stas.

@@ -1,4 +1,4 @@
-package Blinov.Section1;
+package Blinov.Section1.A;
 
 import java.io.*;
 
