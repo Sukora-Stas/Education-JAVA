@@ -20,6 +20,21 @@ public class Array {
         Min(a);
         Task3(a);
         Task4(a);
+        bubbleSort(a);
+    }
+
+    //5. Элементы, расположенные методом пузырька по убыванию модулей.
+    private static void bubbleSort(int[] arr) {
+
+        for (int i = arr.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (Math.abs(arr[j]) < Math.abs(arr[j + 1])) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                }
+            }
+        }
     }
 
     //4. Числа, которые делятся на 5 и на 7.
