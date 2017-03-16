@@ -16,3 +16,5 @@ workspace.xml
 
 # virtual machine crash logs
 hs_err_pid*
+.gitignore
+src/Game_asteroid/libGDX/.gitignore
