@@ -1,7 +1,6 @@
 package Blinov.Section1.B;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by Sukora Stas.
@@ -12,7 +11,7 @@ public class Array {
     public static void main(String[] args) {
         int[] a = new int[20];
         for (int i = 0; i < a.length; i++) {
-            a[i] = (int) (Math.random() * 100) + 1;
+            a[i] = (int) (Math.random() * 1000) + 1;
         }
         System.out.println(Arrays.toString(a));
         System.out.println();
@@ -22,6 +21,19 @@ public class Array {
         Task3(a);
         Task4(a);
         bubbleSort(a);
+        Task6(a);
+    }
+
+    //6. Все трехзначные числа, в десятичной записи которых нет одинаковых цифр.
+    private static void Task6(int[] a) {
+        System.out.println();
+        System.out.println("Все трехзначные числа, в десятичной записи которых нет одинаковых цифр");
+        String b;
+        for (int anA : a) {
+            b = String.valueOf(anA);
+            if (b.charAt(2) != b.charAt(1))
+                System.out.println(anA);
+        }
     }
 
     //5. Элементы, расположенные методом пузырька по убыванию модулей.
