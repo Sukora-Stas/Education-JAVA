@@ -13,6 +13,8 @@ public class myTattoo {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
 
+        str = str.replaceAll(" ", "");
+        System.out.println(str);
         System.out.println(toBinary(str));
 
     }
