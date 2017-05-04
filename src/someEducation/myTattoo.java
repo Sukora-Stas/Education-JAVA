@@ -14,7 +14,9 @@ public class myTattoo {
         String str = scanner.nextLine();
 
         str = str.replaceAll(" ", "");
+        str = str.replaceAll("'", "");
         System.out.println(str);
+        System.out.println();
         System.out.println(toBinary(str));
 
     }
