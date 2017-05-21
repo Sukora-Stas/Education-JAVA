@@ -36,11 +36,11 @@ public class Task22 {
         return "Second full = " + sum;
     }
 
-    public Task22(int fullSec1) {
-        fullSec = fullSec1;
+    private Task22(int fullSec1) {
+        int fullSec = fullSec1;
     }
 
-    public Task22(int sec1, int min1, int hour1) {
+    private Task22(int sec1, int min1, int hour1) {
         s = sec1;
         m = min1;
         h = hour1;
@@ -57,7 +57,9 @@ public class Task22 {
     }
 
     public static void main(String[] args) {
-        Task22 time = new Task22();
+        Task22 time = new Task22(10,20,10);
+
+        Task22 time2 = new Task22(55336);
 
         time.setTime(10, 20, 50);
 
@@ -65,7 +67,7 @@ public class Task22 {
 
         System.out.println(time.getSecond());
 
-int result = compareToo()
+int result = compareToo(time.getSecond(),time2.getSecond());
 
     }
 }
