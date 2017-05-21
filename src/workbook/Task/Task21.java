@@ -9,56 +9,37 @@ package workbook.Task;
 * Сравните скорость их выполнения.*/
 public class Task21 {
 
-    public static long stringPlus(){
-        String firstStr="";
+    public static long stringPlus() {
+        String firstStr = "";
         Long fs, fe;
-
-
+        fs = System.nanoTime();
+        for (int i = 0; i <= 200; i++) {
+            firstStr += "Напишите два цикла выполня";
+        }
+        fe = System.nanoTime();
+        return fe - fs;
     }
 
+    public static long strindBild() {
+        StringBuilder secondStr = new StringBuilder();
+        long ss, se;
+        ss = System.nanoTime();
+        for (int i = 0; i <= 200; i++) {
+            secondStr.append("Напишите два цик");
+        }
+        se = System.nanoTime();
+        return se - ss;
+    }
 
+    public static void main(String[] args) {
+        System.out.println("Сложение String "+String.format("%,12d",stringPlus())+"ns");
+        System.out.println("Сложение String "+String.format("%,12d",stringPlus())+"ns");
+        System.out.println("Сложение String "+String.format("%,12d",stringPlus())+"ns");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("StringBuilder append "+String.format("%,12d",strindBild())+"ns");
+        System.out.println("StringBuilder append "+String.format("%,12d",strindBild())+"ns");
+        System.out.println("StringBuilder append "+String.format("%,12d",strindBild())+"ns");
+    }
 
 //    public static long measure1() {
 //        String firstString = "";
