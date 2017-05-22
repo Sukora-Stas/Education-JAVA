@@ -77,18 +77,24 @@ public class Task23 {
         }
     }
 
+    private void getMoney(int money) {
+        if (giveMyMoneyNiga(money)) {
+
+        }
+    }
+
     public void menu(int a) {
         switch (a) {
             case 1:
-//                System.out.println("how much do you need money?");
                 System.out.println("Select rating money of you need input to bankomat");
                 System.out.println("1:20$");
                 System.out.println("2:50$");
                 System.out.println("3:100$");
                 addMoneyToBankomat(scanner.nextInt());
                 break;
-
-
+            case 2:
+                System.out.println("how much do you need money?");
+                getMoney(scanner.nextInt());
             default:
                 System.out.println("Sosi pisos!");
                 break;
@@ -117,7 +123,7 @@ public class Task23 {
         System.out.printf("%-15s", "Menu:");
         System.out.println();
         System.out.printf("%-5d%-15s", 1, "Add money:");
-
+        System.out.printf("%-5d%-15s", 2, "Get money:");
         bankomat.menu(scanner.nextInt());
 
 
