@@ -49,19 +49,24 @@ public class Task23 {
 
     private void addMoneyToBankomat(int a) {
         try {
-
             switch (a) {
                 case 1:
                     System.out.println("Input amount money rating *20*: ");
+                    System.out.println("Now bank have money amount *20$*=" + m20);
                     m20 += scanner.nextInt();
+                    System.out.println("Now bank have money amount *20$*=" + m20);
                     break;
                 case 2:
                     System.out.println("Input amount money rating *50*: ");
+                    System.out.println("Now bank have money amount *50$*=" + m50);
                     m50 += scanner.nextInt();
+                    System.out.println("Now bank have money amount *50$*=" + m50);
                     break;
                 case 3:
                     System.out.println("Input amount money rating *100*: ");
+                    System.out.println("Now bank have money amount *100$*=" + m100);
                     m100 += scanner.nextInt();
+                    System.out.println("Now bank have money amount *100$*=" + m100);
                     break;
                 default:
                     System.out.println("ERROR!");
@@ -76,7 +81,10 @@ public class Task23 {
         switch (a) {
             case 1:
 //                System.out.println("how much do you need money?");
-
+                System.out.println("Select rating money of you need input to bankomat");
+                System.out.println("1:20$");
+                System.out.println("2:50$");
+                System.out.println("3:100$");
                 addMoneyToBankomat(scanner.nextInt());
                 break;
 
