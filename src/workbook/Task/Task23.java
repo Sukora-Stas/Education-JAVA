@@ -49,8 +49,6 @@ public class Task23 {
 
     private void addMoneyToBankomat(int a) {
         try {
-
-
             Scanner scanner = new Scanner(System.in);
             switch (a) {
                 case 1:
@@ -76,10 +74,27 @@ public class Task23 {
      * какого номинала выдаётся сумма.
      * Создать конструктор с тремя параметрами - кол-вом купюр
      */
+    public void menu(int a){
+        switch (a){
+
+//            case 1: addMoneyToBankomat();
+//            break;
+        }
+    }
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         Task23 bankomat = new Task23(30, 40, 50);
 
-//test
+        System.out.printf("%-15s","Menu:");
+        System.out.println();
+        System.out.printf("%-15s","Add money:");
+
+
+
+
+
+        System.out.println();
         boolean t = bankomat.giveMyMoneyNiga(10000);
         System.out.println(t);
 
