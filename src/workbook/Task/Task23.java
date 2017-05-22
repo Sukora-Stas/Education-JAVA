@@ -55,9 +55,35 @@ public class Task23 {
                     System.out.println("Input amount money rating *20*: ");
                     m20 += scanner.nextInt();
                     break;
+                case 2:
+                    System.out.println("Input amount money rating *50*: ");
+                    m50 += scanner.nextInt();
+                    break;
+                case 3:
+                    System.out.println("Input amount money rating *100*: ");
+                    m100 += scanner.nextInt();
+                    break;
+                default:
+                    System.out.println("ERROR!");
+                    break;
             }
         } catch (Exception e) {
             System.out.println("Fuck you niga, you stupid. EROR NAXYU");
+        }
+    }
+
+    public void menu(int a) {
+        switch (a) {
+            case 1:
+//                System.out.println("how much do you need money?");
+
+                addMoneyToBankomat(scanner.nextInt());
+                break;
+
+
+            default:
+                System.out.println("Sosi pisos!");
+                break;
         }
     }
 
@@ -73,20 +99,7 @@ public class Task23 {
      * какого номинала выдаётся сумма.
      * Создать конструктор с тремя параметрами - кол-вом купюр
      */
-    public void menu(int a) {
-        switch (a) {
-            System.out.println("how much do you need money&");
 
-            case 1:
-                addMoneyToBankomat();
-                break;
-
-
-            default:
-                System.out.println("Sosi pisos!");
-                break;
-        }
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
