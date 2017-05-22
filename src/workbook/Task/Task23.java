@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Task23 {
     private int m20, m50, m100;
-
+    private Scanner scanner = new Scanner(System.in);
 
     public Task23() {
 
@@ -49,15 +49,14 @@ public class Task23 {
 
     private void addMoneyToBankomat(int a) {
         try {
-            Scanner scanner = new Scanner(System.in);
+
             switch (a) {
                 case 1:
                     System.out.println("Input amount money rating *20*: ");
                     m20 += scanner.nextInt();
                     break;
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Fuck you niga, you stupid. EROR NAXYU");
         }
     }
@@ -74,29 +73,37 @@ public class Task23 {
      * какого номинала выдаётся сумма.
      * Создать конструктор с тремя параметрами - кол-вом купюр
      */
-    public void menu(int a){
-        switch (a){
+    public void menu(int a) {
+        switch (a) {
+            System.out.println("how much do you need money&");
 
-//            case 1: addMoneyToBankomat();
-//            break;
+            case 1:
+                addMoneyToBankomat();
+                break;
+
+
+            default:
+                System.out.println("Sosi pisos!");
+                break;
         }
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         Task23 bankomat = new Task23(30, 40, 50);
 
-        System.out.printf("%-15s","Menu:");
+        System.out.printf("%-15s", "Menu:");
         System.out.println();
-        System.out.printf("%-15s","Add money:");
+        System.out.printf("%-5d%-15s", 1, "Add money:");
 
-
-
+        bankomat.menu(scanner.nextInt());
 
 
         System.out.println();
-        boolean t = bankomat.giveMyMoneyNiga(10000);
-        System.out.println(t);
+
+//        boolean t = bankomat.giveMyMoneyNiga(10000);
+//        System.out.println(t);
 
     }
 
