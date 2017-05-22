@@ -79,7 +79,7 @@ public class Task23 {
     public static void main(String[] args) {
         Task23 bankomat = new Task23(30, 40, 50);
 
-
+//test
         boolean t = bankomat.giveMyMoneyNiga(10000);
         System.out.println(t);
 
