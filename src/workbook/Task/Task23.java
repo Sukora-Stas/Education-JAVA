@@ -82,9 +82,19 @@ public class Task23 {
     }
 
     private void getMoney(int money) {
+        int balance, rest, amount = 0;
         if (giveMyMoneyNiga(money)) {
-            System.out.println("have money");
-        } else System.out.println("Don't have money");
+            amount = money / 100;
+            System.out.println(howMuchMoney());
+            if (m100 >= amount) {
+                m100 -= amount;
+            }
+            System.out.println(howMuchMoney());
+
+
+          //  System.out.println(balance);
+
+        } else System.out.println("Don't have money. Fuck you!");
     }
 
     public void menu(int a) {
@@ -99,6 +109,9 @@ public class Task23 {
             case 2:
                 System.out.println("how much do you need money?");
                 getMoney(scanner.nextInt());
+                break;
+            case 3:
+                System.out.println(howMuchMoney());
                 break;
             default:
                 System.out.println("Sosi pisos!");
@@ -123,12 +136,13 @@ public class Task23 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Task23 bankomat = new Task23(30, 40, 50);
+        Task23 bankomat = new Task23(30, 40, 10);
 
-        System.out.printf("%-15s", "Menu:");
+        System.out.printf("%-15s", "Menu:\n");
         System.out.println();
-        System.out.printf("%-5d%-15s", 1, "Add money:");
-        System.out.printf("%-5d%-15s", 2, "Get money:");
+        System.out.printf("%-5d%-15s", 1, "Add money:\n");
+        System.out.printf("%-5d%-15s", 2, "Get money:\n");
+        System.out.printf("%-5d%-15s", 3, "How much money:\n");
         bankomat.menu(scanner.nextInt());
 
 
