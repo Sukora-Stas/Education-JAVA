@@ -82,17 +82,27 @@ public class Task23 {
     }
 
     private void getMoney(int money) {
-        int amount;
+        int amount, sum, banknot;
         if (giveMyMoneyNiga(money)) {
             System.out.println("You get you'r money!");
+            sum = howMuchMoney();
+
             amount = money / 100;
-            if (amount > 0) {
-                m100 -= amount;
-                System.out.println("Banknot 100$ - " + amount + " st");
+            if (m100 >= amount) {
+                if (amount > 0) {
+                    m100 -= amount;
+                    System.out.println("Banknot 100$ - " + amount + " st");
+                }
+            } else {
+                money -= m100*100;
+
+
                 amount = (money % 100) / 50;
                 if (amount > 0) {
                     m50 -= amount;
                     System.out.println("Banknot 50$ - " + amount + " st");
+
+
                     amount = ((money % 100) % 50) / 20;
                     if (amount > 0) {
                         m20 -= amount;
