@@ -82,17 +82,18 @@ public class Task23 {
     }
 
     private void getMoney(int money) {
-        int balance, rest, amount = 0;
+        System.out.println(howMuchMoney());
         if (giveMyMoneyNiga(money)) {
-            amount = money / 100;
-            System.out.println(howMuchMoney());
-            if (m100 >= amount) {
-                m100 -= amount;
+            if ((money / 100) > 0) {
+                m100 -= money / 100;
+                if ((money % 100) / 50 > 0) {
+                    m50 -= (money % 100) / 50;
+                    if (((money % 100) % 50) / 20 > 0) {
+                        m20 -= ((money % 100) % 50) / 20;
+                    }
+                }
             }
             System.out.println(howMuchMoney());
-
-
-          //  System.out.println(balance);
 
         } else System.out.println("Don't have money. Fuck you!");
     }
@@ -147,10 +148,6 @@ public class Task23 {
 
 
         System.out.println();
-
-//        boolean t = bankomat.giveMyMoneyNiga(10000);
-//        System.out.println(t);
-
     }
 
 
