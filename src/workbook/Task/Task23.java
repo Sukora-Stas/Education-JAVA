@@ -94,7 +94,7 @@ public class Task23 {
                     System.out.println("Banknot 100$ - " + amount + " st");
                 }
             } else {
-                money -= m100*100;
+                money -= m100 * 100;
 
 
                 amount = (money % 100) / 50;
