@@ -47,6 +47,10 @@ public class Task23 {
         return (m20 * 20) + (m50 * 50) + (m100 * 100) >= money;
     }
 
+    private int howMuchMoney() {
+        return (m20 * 20) + (m50 * 50) + (m100 * 100);
+    }
+
     private void addMoneyToBankomat(int a) {
         try {
             switch (a) {
@@ -79,8 +83,8 @@ public class Task23 {
 
     private void getMoney(int money) {
         if (giveMyMoneyNiga(money)) {
-
-        }
+            System.out.println("have money");
+        } else System.out.println("Don't have money");
     }
 
     public void menu(int a) {
@@ -95,6 +99,7 @@ public class Task23 {
             case 2:
                 System.out.println("how much do you need money?");
                 getMoney(scanner.nextInt());
+                break;
             default:
                 System.out.println("Sosi pisos!");
                 break;
