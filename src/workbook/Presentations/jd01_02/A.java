@@ -1,5 +1,6 @@
 package workbook.Presentations.jd01_02;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,6 +8,8 @@ import java.util.Scanner;
  * Created by Sukora Stas.
  */
 public class A {
+//    private static int[] m;
+
     /**
      * Ввести n чисел с консоли через пробел.
      * Преобразовать полученную строку в массив целых чисел, для этого удобно использовать конструкцию вида
@@ -25,11 +28,16 @@ public class A {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите количество чисел");
         int n = scanner.nextInt();
+        scanner.close();
+        int a;
+        int[] m = new int[n];
         for (int i = 0; i < n; i++) {
-            int a = (int) (Math.random() * 100);
+            a = (int) (Math.random() * 100);
+            m[i] = a;
         }
 
+        System.out.println(Arrays.toString(m));
 
-        scanner.close();
+
     }
 }
