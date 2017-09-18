@@ -1,5 +1,4 @@
 package someEducation;
-
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
