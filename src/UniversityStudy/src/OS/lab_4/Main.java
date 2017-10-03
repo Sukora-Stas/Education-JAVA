@@ -1,8 +1,6 @@
 package UniversityStudy.src.OS.lab_4;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +17,7 @@ import java.util.List;
 public class Main {
 
     private static double[] y;
+    private static String fileName = "/home/stas/680961/SukoraSI/test3.txt";
 
     public static void main(String[] args) throws IOException, InterruptedException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -54,12 +53,37 @@ public class Main {
             thread.join();
         }
 
+        StringBuilder str = new StringBuilder();
         //output
         for (int i = 0; i < y.length; i++) {
-            String formattedDouble = new DecimalFormat("#0.00000").format(y[i]);
+            String formattedDouble = new DecimalFormat("#0.0000000").format(y[i]);
+
+            str.append(formattedDouble + "\n");
 
         }
+        write(fileName, str.toString());
 
+    }
+
+    //writeToFile
+    public static void write(String fileName, String text) {
+        File file = new File(fileName);
+
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+
+            try {
+                out.print(text);
+            } finally {
+                out.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package UniversityStudy.src.OS.lab_4;
 
+import java.text.DecimalFormat;
+
 public class TeilorStep extends Thread {
 
     private double sum;
@@ -19,20 +21,27 @@ public class TeilorStep extends Thread {
     @Override
     public void run() {
         double derivative = derivative(index, N, n);
-        System.out.println("id[" + index + "]   " + derivative);
+        String formattedDouble = new DecimalFormat("#0.0000000").format(derivative);
+        System.out.println("\nid[" + index + "]   " + formattedDouble);
         sum = derivative;
         callback.success(index, sum);
     }
 
     //stepTeilor
     public double derivative(int stepen, int N, int n) {
+        double m;
+
         if (stepen == 0 || stepen % 2 == 0) {
             return 0;
         }
         if (stepen == 1) {
-            return (2 * ((Math.PI) / ((Math.pow(Math.PI, stepen))) / factorial(stepen)));
+            m = 0;
+            for (int i = 0; i < n; i++) {
+                m += (Math.pow(2, stepen) * ((Math.pow(Math.PI, stepen)) / Math.pow(N, stepen))) / factorial(stepen);
+            }
+            return m;
         }
-        double m = 0;
+        m = 0;
         for (int i = 0; i < n; i++) {
             m += ((Math.pow(2, stepen) * -1) * ((Math.pow(Math.PI, stepen)) / Math.pow(N, stepen))) / factorial(stepen);
         }
