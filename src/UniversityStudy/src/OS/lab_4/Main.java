@@ -3,7 +3,6 @@ package UniversityStudy.src.OS.lab_4;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class Main {
@@ -14,32 +13,45 @@ public class Main {
         int K = Integer.parseInt(reader.readLine());
 
         System.out.print("Input N: ");
-        double N = Double.parseDouble(reader.readLine());
+        int N = Integer.parseInt(reader.readLine());
 
-        /*System.out.print("Input n: ");
-        int n = Integer.parseInt(reader.readLine());*/
+        System.out.print("Input n: ");
+        int n = Integer.parseInt(reader.readLine());
 
         double[] y = new double[K - 1];
 
         for (int i = 0; i < y.length; i++) {
-            double test=Math.sin((2 * Math.PI * i) / N);
-////            String formattedDouble = String.format("%.10f", test);
-//            String formattedDouble = new DecimalFormat("#0.0000000000").format(test);
-//            System.out.println(formattedDouble);
-            y[i] = test;
+            double derivative = derivative(n,N);
+//            String formattedDouble = String.format("%.10f", test);
+            String formattedDouble = new DecimalFormat("#0.0000000000").format(derivative);
+            System.out.println(formattedDouble);
+
+
+            y[i] = derivative;
         }
 
 
+    }
 
+    public static double derivative(int stepen, int N) {
+        if (stepen == 0 || stepen % 2 == 0) {
+            return 0;
+        }
+        if (stepen == 1) {
+            return (2 * ((Math.PI) / N)) / factorial(stepen);
+        }
 
+        return ((Math.pow(2, stepen) * -1) * ((Math.pow(Math.PI, stepen)) / Math.pow(N,stepen))) / factorial(stepen);
+    }
 
+    public static int factorial(int a) {
+        int y = 1;
+        for (int i = 1; i <= a; i++) {
+            y *= i;
+        }
 
-
-
-
-
-
-
+        return y;
+    }
 
 
 
@@ -71,5 +83,5 @@ public class Main {
             ret *= i;
         return ret;
     }*/
-    }
+    //}
 }
