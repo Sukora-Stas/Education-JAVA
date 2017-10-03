@@ -1,6 +1,6 @@
-package University
+package UniversityStudy.src.lab_1;
 
-import java.io.IOException;.680961
+import java.io.IOException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
