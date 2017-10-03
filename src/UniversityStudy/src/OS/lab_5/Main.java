@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Locale;
 
+
+        /*Написать программу, выводящую на экран список запущенных
+          процессов и потоков и их атрибуты (pid и др.) в виде таблицы.*/
+
+
 /**
  * Created by Sukora Stas.
  */

@@ -11,6 +11,11 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.List;
 
+        /*Программа просмотра текстового файла и вывода его содержимого на
+        экран (имя файла передается в качестве аргумента при запуске программы, вто-
+        рой аргумент N устанавливает вывод по группам строк (по N строк) или
+        сплошным текстом (N = 0)).*/
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
