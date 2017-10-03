@@ -1,4 +1,4 @@
-package UniversityStudy.src.lab_5;
+package UniversityStudy.src.OS.lab_5;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
