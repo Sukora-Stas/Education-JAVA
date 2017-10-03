@@ -20,18 +20,24 @@ public class Main {
 
         double[] y = new double[K - 1];
 
-        TeilorStep teilorStep = new TeilorStep(y,N,n);
 
         //input
-
+        for (int i = 0; i < y.length; i++) {
+            TeilorStep teilorStep = new TeilorStep(i,N,n);
             Thread thread = new Thread(teilorStep);
-            thread.wait();
+            thread.start();
+            y[i]=teilorStep.getSum();
+        }
+
+
+
+            /*Thread main=Thread.currentThread();
+            main.wait();*/
 
 
         //output
-        double[] dY=teilorStep.getY();
         for (int i = 0; i < y.length; i++) {
-            String formattedDouble = new DecimalFormat("#0.00000").format(dY[i]);
+            String formattedDouble = new DecimalFormat("#0.00000").format(y[i]);
             System.out.println(formattedDouble);
         }
 

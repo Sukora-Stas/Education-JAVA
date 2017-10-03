@@ -2,24 +2,26 @@ package UniversityStudy.src.OS.lab_4;
 
 public class TeilorStep extends Thread {
 
-    private double[] y;
+//    private double[] y;
+
+    private int i;
     private int N;
     private int n;
 
+    private double sum;
 
-    public TeilorStep(double[] y,int N,int n){
-        this.y=y;
+
+    public TeilorStep(int i,int N,int n){
+        this.i=i;
         this.N=N;
         this.n=n;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < y.length; i++) {
             double derivative = derivative(i, N, n);
-            System.out.println(derivative);
-            y[i] = derivative;
-        }
+            System.out.println("id["+i+"]   "+derivative);
+            sum = derivative;
     }
 
     //stepTeilor
@@ -48,7 +50,7 @@ public class TeilorStep extends Thread {
         return y;
     }
 
-    public double[] getY() {
-        return y;
+    public double getSum() {
+        return sum;
     }
 }
