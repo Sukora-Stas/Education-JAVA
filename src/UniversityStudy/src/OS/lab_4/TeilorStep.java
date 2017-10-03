@@ -4,24 +4,26 @@ public class TeilorStep extends Thread {
 
 //    private double[] y;
 
-    private int i;
-    private int N;
-    private int n;
-
     private double sum;
 
+    private int index;
+    private int N;
+    private int n;
+    private Callback callback;
 
-    public TeilorStep(int i,int N,int n){
-        this.i=i;
-        this.N=N;
-        this.n=n;
+    public TeilorStep(int index, int N, int n, Callback callback){
+        this.index = index;
+        this.N = N;
+        this.n = n;
+        this.callback = callback;
     }
 
     @Override
     public void run() {
-            double derivative = derivative(i, N, n);
-            System.out.println("id["+i+"]   "+derivative);
+            double derivative = derivative(index, N, n);
+            System.out.println("id["+index+"]   "+derivative);
             sum = derivative;
+            callback.success(index, sum);
     }
 
     //stepTeilor
