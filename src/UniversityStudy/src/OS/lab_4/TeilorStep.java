@@ -2,8 +2,6 @@ package UniversityStudy.src.OS.lab_4;
 
 public class TeilorStep extends Thread {
 
-//    private double[] y;
-
     private double sum;
 
     private int index;
@@ -11,7 +9,7 @@ public class TeilorStep extends Thread {
     private int n;
     private Callback callback;
 
-    public TeilorStep(int index, int N, int n, Callback callback){
+    public TeilorStep(int index, int N, int n, Callback callback) {
         this.index = index;
         this.N = N;
         this.n = n;
@@ -20,10 +18,10 @@ public class TeilorStep extends Thread {
 
     @Override
     public void run() {
-            double derivative = derivative(index, N, n);
-            System.out.println("id["+index+"]   "+derivative);
-            sum = derivative;
-            callback.success(index, sum);
+        double derivative = derivative(index, N, n);
+        System.out.println("id[" + index + "]   " + derivative);
+        sum = derivative;
+        callback.success(index, sum);
     }
 
     //stepTeilor
@@ -52,7 +50,4 @@ public class TeilorStep extends Thread {
         return y;
     }
 
-    public double getSum() {
-        return sum;
-    }
 }
