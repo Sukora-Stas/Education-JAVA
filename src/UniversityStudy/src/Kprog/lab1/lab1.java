@@ -3,6 +3,7 @@ package UniversityStudy.src.Kprog.lab1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -44,7 +45,22 @@ public class lab1 {
                 crossing(arr2, arr1, arr, i);
             }
         }
+        System.out.println();
+        System.out.println("Task a: ");
         System.out.println(Arrays.toString(arr));
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int anArr1 : arr1) {
+            list.add(anArr1);
+        }
+        for (int anArr2 : arr2) {
+            list.add(anArr2);
+        }
+
+        System.out.println();
+        System.out.println("Task b: ");
+        System.out.println(list);
+
     }
 
     private static int[] crossing(int[] arr1, int[] arr2, int[] arr, int index) {
