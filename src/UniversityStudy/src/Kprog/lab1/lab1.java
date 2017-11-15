@@ -1,4 +1,4 @@
-package UniversityStudy.src.Kprog;
+package UniversityStudy.src.Kprog.lab1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,32 +30,32 @@ public class lab1 {
         System.out.println("arr1= " + Arrays.toString(array.getArr1()));
         System.out.println("arr2= " + Arrays.toString(array.getArr2()));
 
-    }
-
-    private static class Array {
-        private int[] arr1;
-        private int[] arr2;
-
-        public Array(int size_arr1, int size_arr2) {
-            arr1 = new int[size_arr1];
-            arr2 = new int[size_arr2];
-        }
-
-        private int[] random(int size) {
-            int[] arr = new int[size];
+        int[] arr;
+        int[] arr1 = array.getArr1();
+        int[] arr2 = array.getArr2();
+        if (arr1.length >= arr2.length) {
+            arr = new int[arr1.length];
             for (int i = 0; i < arr.length; i++) {
-                arr[i] = (int) (Math.random() * 100);
+                crossing(arr1, arr2, arr, i);
             }
-            return arr;
+        } else {
+            arr = new int[arr2.length];
+            for (int i = 0; i < arr.length; i++) {
+                crossing(arr2, arr1, arr, i);
+            }
         }
-
-        public int[] getArr1() {
-            return random(arr1.length);
-        }
-
-        public int[] getArr2() {
-            return random(arr2.length);
-        }
-
+        System.out.println(Arrays.toString(arr));
     }
+
+    private static int[] crossing(int[] arr1, int[] arr2, int[] arr, int index) {
+        try {
+            if (arr1[index] == arr2[index]) {
+                arr[index] = arr1[index];
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            arr[index] = arr1[index];
+        }
+        return arr;
+    }
+
 }
