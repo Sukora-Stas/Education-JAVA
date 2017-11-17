@@ -16,6 +16,10 @@ public class lab2 {
                 "sdfasfdgbvafdb \n" +
                 "grgafgvdfab \n";
 
-        System.out.println(string.indexOf(string,10));
+        System.out.println(string.indexOf(string, 10));
     }
+
+    /*public boolean isEmpty(String value) {
+        return value.length == 0;
+    }*/
 }
