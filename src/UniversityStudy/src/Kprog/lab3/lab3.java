@@ -1,4 +1,4 @@
-package UniversityStudy.src.Kprog;
+package UniversityStudy.src.Kprog.lab3;
 
 /**
  * Created by Sukora Stas.
@@ -9,7 +9,6 @@ package UniversityStudy.src.Kprog;
  * Реализовать класс «Каталог», с производными «Тематический каталог», «Алфавитный каталог» с методами,
  * реализующими поиск по шифру или автору (названию).
  */
-
 
 public class lab3 {
 }
