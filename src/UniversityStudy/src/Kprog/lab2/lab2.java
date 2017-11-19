@@ -1,4 +1,4 @@
-package UniversityStudy.src.Kprog;
+package UniversityStudy.src.Kprog.lab2;
 
 /**
  * Created by Sukora Stas.
