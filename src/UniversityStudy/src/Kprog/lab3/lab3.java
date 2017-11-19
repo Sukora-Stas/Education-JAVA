@@ -3,6 +3,8 @@ package UniversityStudy.src.Kprog.lab3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Sukora Stas.
@@ -15,6 +17,13 @@ import java.io.InputStreamReader;
  */
 
 public class lab3 {
+    private List<Card> list = new LinkedList<>();
+
+    static {
+
+    }
+
+
     public static void main(String[] args) throws IOException {
         System.out.println("Input your sort class");
         System.out.println("1: sort by code");
@@ -22,7 +31,17 @@ public class lab3 {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int a=Integer.parseInt(reader.readLine());
+        int a = Integer.parseInt(reader.readLine());
+
+        switch (a) {
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+        }
+
 
     }
 }
