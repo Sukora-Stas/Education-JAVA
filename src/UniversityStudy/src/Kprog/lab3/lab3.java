@@ -1,5 +1,9 @@
 package UniversityStudy.src.Kprog.lab3;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created by Sukora Stas.
  */
@@ -11,4 +15,14 @@ package UniversityStudy.src.Kprog.lab3;
  */
 
 public class lab3 {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Input your sort class");
+        System.out.println("1: sort by code");
+        System.out.println("2: sort by author");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int a=Integer.parseInt(reader.readLine());
+
+    }
 }
