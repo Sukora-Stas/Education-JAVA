@@ -17,14 +17,17 @@ import java.util.List;
  */
 
 public class lab3 {
-    private List<Card> list = new LinkedList<>();
-
-    static {
-
-    }
-
-
     public static void main(String[] args) throws IOException {
+        List<Card> list = new LinkedList<>();
+        Card card;
+        for (int i = 0; i < 15; i++) {
+            card = new Card();
+            card.setNameAuthor("Author" + i);
+            card.setArticle("Article" + i);
+            card.setUrl("url" + i);
+            list.add(card);
+        }
+
         System.out.println("Input your sort class");
         System.out.println("1: sort by code");
         System.out.println("2: sort by author");
@@ -35,10 +38,14 @@ public class lab3 {
 
         switch (a) {
             case 1:
-
+                for (Card card1 : list) {
+                    System.out.println(card1.getArticle() + " " + card1.getNameAuthor() + " " + card1.getUrl());
+                }
                 break;
             case 2:
-
+                for (Card card1 : list) {
+                    System.out.println(card1.getNameAuthor() + " " + card1.getArticle() + " " + card1.getUrl());
+                }
                 break;
         }
 
